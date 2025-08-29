@@ -2,8 +2,8 @@
   <div class=" -ml-10 h-screen p-[30px]" >
     <section class="bg-white overflow-hidden  transition-all duration-500 ease-in-out transform origin-bottom fixed bottom-24 right-5
      rounded-2xl
-     xs:w-[20rem] h-[25rem] right-0
-      sm:w-80 sm:h-[30rem]
+     xs:w-[20rem] h-[25rem] --0
+      sm:w-80 sm:h-[26rem]
       md:w-96 md:h-[26rem]
     "
      *ngIf="mostraChat">
@@ -26,7 +26,7 @@
       </article>
       <form method="post" class="flex items-center gap-2 px-5">
         <input type="text" placeholder="escreva sua mensagem..." class="flex-1 rounded-xl border-2 p-3 border-blue-600">
-        <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded-xl">Enviar</button>
+        <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded-xl"><img src="img/send.png" alt="" class="w-[35px] invert brightness-0 "></button>
       </form>
     </section>
         <img src="img/chat.png" alt="chat"  (click)="appear()" class="w-[75px] cursor-pointer fixed bottom-5 right-5">

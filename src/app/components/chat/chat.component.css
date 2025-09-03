@@ -1,0 +1,11 @@
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-weight: bold;
+  margin-bottom: 6px; /* espaço entre título e parágrafo */
+  color: #1e3a8a; /* azul Angola Cables */
+}
+
+.prose p {
+  margin-bottom: 12px; /* espaço entre parágrafos */
+}

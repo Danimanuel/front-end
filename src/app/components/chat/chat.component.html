@@ -41,7 +41,7 @@
             *ngIf="msg.from === 'bot'"
             class="text-left bg-[#f4f1f1] text-black p-2 rounded-xl inline-block max-w-[75%]"
           >
-            <markdown [data]="msg.text"></markdown>
+          <markdown *ngIf="msg.text" [data]="msg.text"></markdown>
 
           </p>
         </div>

@@ -6,7 +6,8 @@ import {MarkdownModule} from 'ngx-markdown';
 
 @Component({
   selector: 'app-chat',
-  imports: [NgIf, NgFor, FormsModule, MarkdownModule],
+  imports: [NgIf, NgFor, FormsModule, MarkdownModule
+  ],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })

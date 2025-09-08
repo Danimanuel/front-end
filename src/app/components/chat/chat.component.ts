@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from '../../services/chat.service';
-import {MarkdownModule} from 'ngx-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-chat',
@@ -16,12 +16,12 @@ export class ChatComponent {
   response = '';
   conversationStarted = false;
   messages: { from: 'user' | 'bot', text: string }[] = [];
-
+  loading = false;
   mostraChat = true;
 
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService) { }
 
   sendMessage() {
     if (!this.text.trim()) return;
@@ -31,14 +31,18 @@ export class ChatComponent {
 
     // Adiciona mensagem do usuário
     this.messages.push({ from: 'user', text: this.text });
-
+    this.loading = true;
     this.chatService.sendMessage(this.text).subscribe({
       next: (res) => {
         this.messages.push({ from: 'bot', text: res.response });
         this.scrollToBottom();
+        this.loading = false;
+        this.scrollToBottom();
       },
       error: (err) => {
         console.error(err);
+        this.loading = false;
+        this.scrollToBottom();
       }
     });
 

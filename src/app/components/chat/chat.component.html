@@ -25,6 +25,7 @@
       </ng-container>
 
       <!-- Histórico da conversa -->
+
       <div
         *ngIf="conversationStarted"
         #chatContainer
@@ -37,6 +38,15 @@
           >
             {{ msg.text }}
           </p>
+          <div *ngIf="loading" class="text-left">
+       <div class="bg-[#f4f1f1f1] text-black p-2 rounded-xl inline-block max-w-[75%]">
+        <div class="typing-indicator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+       </div>
+     </div>
           <p
             *ngIf="msg.from === 'bot'"
             class="text-left bg-[#f4f1f1] text-black p-2 rounded-xl inline-block max-w-[75%]"

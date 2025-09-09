@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+@media screen and (min-width:768px) {
+  div#cabeça{
+    height: 60vh;
+  }
+
+  div#causa-quebra{
+    
+    flex-flow: row nowrap;
+    
+    
+  }
+
+  div#causa-quebra > #conteudo {
+    width: 500px;
+    margin: auto;
+  }
+div#causa-quebra > #img {
+  margin: auto;
+}
+  div#causa-quebra > #conteudo > ul {
+    width: 170px;
+  }
+
+#causa-quebra > #conteudo > h1 {
+  font-size: 2em;
+  padding-bottom: 15px;
+}
+
+  div#causa-quebra img {
+    width: 29em;
+  }
+
+  div#con2 {
+    flex-flow: row nowrap;
+    align-items: center;
+
+  }
+
+  div#con2 > div {
+    margin: 2em;
+    height: 11em;
+  }
+
+}
+
+#con2 > div > h2 {
+  font-size: 1.3em;
+}

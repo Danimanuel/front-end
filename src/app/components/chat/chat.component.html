@@ -1,83 +1,86 @@
-<div class="bg-slate-500 min-h-screen">
-  <div class="-ml-10 h-screen p-[30px]">
-    <section
-      class="bg-white overflow-hidden transition-all duration-500 ease-in-out transform origin-bottom fixed bottom-24 right-5 rounded-2xl xs:w-[20rem] h-[25rem] sm:w-80 sm:h-[26rem] md:w-96 md:h-[26rem]"
-      *ngIf="mostraChat"
-    >
-      <header class="bg-blue-900 p-5 text-center text-white font-sans">
-        <h2 class="text-lg">Assistente Virtual Angola Cables</h2>
-      </header>
 
-      <!-- Mensagem inicial -->
-      <ng-container *ngIf="!conversationStarted">
-        <article class="p-2 pb-1 bg-[#f4f1f1] m-5 rounded-md">
-          <p>Olá! Sou o Assistente virtual da Angola Cables.</p>
-        </article>
-        <article class="p-4 bg-[#f4f1f1] m-5 -mt-4 rounded-lg">
-          <p class="mb-2">Posso ajudar com:</p>
-          <ul class="list-disc text-sm pl-6 marker:text-blue-900">
-            <li>Internet & Fibra Óptica</li>
-            <li>Serviços Cloud</li>
-            <li>Data Centers</li>
-            <li>Suporte Técnico</li>
-          </ul>
-        </article>
-      </ng-container>
-
-      <!-- Histórico da conversa -->
-
-      <div
-        *ngIf="conversationStarted"
-        #chatContainer
-        class="px-5 mt-3 space-y-2 overflow-y-auto h-[62%]"
+  <div class="bg-black ">
+    <div class="-ml-10 h-screen p-[30px]">
+      <section
+        class="bg-white overflow-hidden transition-all duration-500 ease-in-out transform origin-bottom fixed bottom-24 right-5 rounded-2xl xs:w-[20rem] h-[25rem] sm:w-80 sm:h-[26rem] md:w-96 md:h-[26rem]"
+        *ngIf="mostraChat"
       >
-        <div *ngFor="let msg of messages">
-          <p
-            *ngIf="msg.from === 'user'"
-            class="text-right bg-blue-900 text-white p-2 rounded-xl inline-block max-w-[75%]"
-          >
-            {{ msg.text }}
-          </p>
-          <div *ngIf="loading" class="text-left">
-       <div class="bg-[#f4f1f1f1] text-black p-2 rounded-xl inline-block max-w-[75%]">
-        <div class="typing-indicator">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-       </div>
-     </div>
-          <p
-            *ngIf="msg.from === 'bot'"
-            class="text-left bg-[#f4f1f1] text-black p-2 rounded-xl inline-block max-w-[75%]"
-          >
-          <markdown *ngIf="msg.text" [data]="msg.text"></markdown>
+        <header class="bg-blue-900 p-5 text-center text-white font-sans">
+          <h2 class="text-lg">Assistente Virtual Angola Cables</h2>
+        </header>
 
-          </p>
-        </div>
-      </div>
+        <!-- Mensagem inicial  -->
+        <ng-container *ngIf="!conversationStarted">
+          <article class="p-2 pb-1 bg-[#f4f1f1] m-5 rounded-md">
+            <p>Olá! Sou o Assistente virtual da Angola Cables.</p>
+          </article>
+          <article class="p-4 bg-[#f4f1f1] m-5 -mt-4 rounded-lg">
+            <p class="mb-2">Posso ajudar com:</p>
+            <ul class="list-disc text-sm pl-6 marker:text-blue-900">
+              <li>Internet & Fibra Óptica</li>
+              <li>Serviços Cloud</li>
+              <li>Data Centers</li>
+              <li>Suporte Técnico</li>
+            </ul>
+          </article>
+        </ng-container>
 
-      <!-- Formulário -->
-      <form (ngSubmit)="sendMessage()" class="flex items-center gap-2 px-6 mt-2">
-        <input
-          type="text"
-          [(ngModel)]="text"
-          name="text"
-          placeholder="escreva sua mensagem..."
-          class="flex-1 rounded-xl border-2 p-3 border-blue-600"
+        <!----Histórico da conversa-->
+
+        <div
+          *ngIf="conversationStarted"
+          #chatContainer
+          class="px-5 mt-3 space-y-2 overflow-y-auto h-[62%]"
         >
-        <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded-xl" >
-          <img src="img/send.png" alt="" class="w-[35px] invert brightness-0  md:max-w-[35px] max-h-[80%]" >
-        </button>
-      </form>
-    </section>
+          <div *ngFor="let msg of messages">
+            <p
+              *ngIf="msg.from === 'user'"
+              class="text-right bg-blue-900 text-white p-2 rounded-xl inline-block max-w-[75%]"
+            >
+              {{ msg.text }}
+            </p>
+            <div *ngIf="loading" class="text-left">
+         <div class="bg-[#f4f1f1f1] text-black p-2 rounded-xl inline-block max-w-[75%]">
+          <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+         </div>
+       </div>
+            <p
+              *ngIf="msg.from === 'bot'"
+              class="text-left bg-[#f4f1f1] text-black p-2 rounded-xl inline-block max-w-[75%]"
+            >
+            <markdown *ngIf="msg.text" [data]="msg.text"></markdown>
 
-    <!-- Botão abrir  / fechar -->
-    <img
-      src="img/chat.png"
-      alt="chat"
-      (click)="appear()"
-      class="w-[75px] cursor-pointer fixed bottom-5 right-5"
-    />
+            </p>
+          </div>
+        </div>
+
+        <!---Formulário-->
+
+        <form (ngSubmit)="sendMessage()" class="flex items-center gap-2 px-6 mt-2">
+          <input
+            type="text"
+            [(ngModel)]="text"
+            name="text"
+            placeholder="escreva sua mensagem..."
+            class="flex-1 rounded-xl border-2 p-3 border-blue-600"
+          >
+          <button type="submit" class="bg-blue-900 text-white px-4 py-2 rounded-xl" >
+            <img src="img/send.png" alt="" class="w-[35px] invert brightness-0  md:max-w-[35px] max-h-[80%]" >
+          </button>
+        </form>
+      </section>
+
+       <!--Botão abrir  / fechar-->
+      <img
+        src="img/chat.png"
+        alt="chat"
+        (click)="appear()"
+        class="w-[75px] cursor-pointer fixed bottom-5 right-5"
+      />
+    </div>
   </div>
-</div>
+

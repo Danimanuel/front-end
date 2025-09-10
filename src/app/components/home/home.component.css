@@ -1,15 +1,29 @@
 @charset "UTF-8";
 
+@media  screen  and (max-width:640px) {
+  div#cabeca{
+    background-color: rgb(8, 27, 70);
+    height: 100%;
+  }
+  img#imagecht{
+    height: 20em;
+    width: 48em;
+    margin-left: -19px;
+  position: relative;
+  } 
+}
+
+
 @media screen and (min-width:768px) {
   div#cabeça{
     height: 60vh;
   }
 
   div#causa-quebra{
-    
+
     flex-flow: row nowrap;
-    
-    
+
+
   }
 
   div#causa-quebra > #conteudo {
@@ -39,12 +53,30 @@ div#causa-quebra > #img {
   }
 
   div#con2 > div {
-    margin: 2em;
+    margin: 1em;
+    margin-top: -40px;
     height: 11em;
+    width: 18em;
+    margin-bottom: 40px;
   }
+ 
 
 }
 
 #con2 > div > h2 {
   font-size: 1.3em;
+}
+
+
+
+#bg-video {
+  position: absolute;
+overflow: hidden;
+  left: 0;
+  width: 100%;
+  height: 68%;
+  margin-top: -1px;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(3px);
 }

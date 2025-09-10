@@ -1,25 +1,32 @@
 <div class="h-2/3 ">
-  <div class=" grid grid-cols-2 grid-rows-1 ">
-      <div class="bg-blue-900 col-span-2 flex justify-between p-2">
+  <div class=" grid grid-cols-2 grid-rows-1  ">
+      <div class="bg-blue-900 col-span-2 flex justify-between p-2 ">
          <img src="img/logo-colorido.png" alt="" class="w-[12em] p-5">
          <img src="img/menu-burguer.png" class="cursor-pointer h-[34px] m-7">
       </div>
-      <div class="col-span-2  bg-[#020836] h-[80vh] " id="cabeça">
+      <div class="col-span-2   h-[80vh] " id="cabeca">
         <div class="flex flex-wrap p-2" id="causa-quebra">
           <div id="hero">
-            <video autoplay muted loop playsinline id="bg-video" >
+            <video [autoplay]="true" [muted]="true" loop [playsInline]="false" id="bg-video" >
               <source src="videos/fundo-bg.webm" type="video/webm">
             </video>
+          </div>
             <article id="conteudo">
               <ul class=" bg-blue-900 inline-block pl-7 m-5 p-1.5 text-sm   rounded-xl text-white  list-disc">
                 <li>Chat em tempo real</li>
               </ul>
               <h1 class="text-[24px] text-2xl font-semibold text-white">Converse Connosco em Tempo real</h1>
               <p class="text-justify  m-2 p-1 text-[#dcdcdc] ">Estamos aqui para esclarecer dúvidas e orientar a melhor solução para si, de forma simples e rápida.</p>
-              <p class="text-justify  m-2 p-1 text-[#dcdcdc]"><button class="bg-[#1b5de1] p-2 rounded-xl text-white font-semibold ">  Iniciar o Chat</button>  Tempo médio de resposta - 2min</p>
+              <p class="text-justify  m-2 p-1 text-[#dcdcdc]"><button (click)="abrirChat()" class="bg-[#1b5de1] p-2 rounded-lg text-white font-semibold">  Iniciar o Chat</button>  Tempo médio de resposta - 2min</p>
+              <app-chat
+              *ngIf="chatAberto"
+              [mostrarChat]="chatAberto"
+              (chatFechado)="onChatFechado()"
+              >
+              </app-chat>
             </article>
-            <div id="img"><img src="img/logo-preto-branco.png" alt=""></div>
-          </div>
+            <div id="img"><img src="img/imagea.png" alt="chat image" id="imagecht" class="h-[25em] w-[25em] mt-5 pl-16 "></div>
+
         </div>
       </div>
   </div>
@@ -40,5 +47,5 @@
       </p>
     </div>
   </div>
-  <footer class="p-6 border-t-2 border-gray-200 text-center"> &copy; Angola Cables - Todo os Direitos reservados.</footer>
+  <footer class="p-6 border-t-2 bg-blue-950 text-white  border-gray-200 text-center"> &copy; Angola Cables - Todo os Direitos reservados.</footer>
 </div>

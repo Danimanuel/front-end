@@ -1,11 +1,23 @@
 import { Component } from '@angular/core';
+import { ChatComponent } from '../chat/chat.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [ChatComponent, NgIf],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  chatAberto = false;
 
+  abrirChat() {
+    this.chatAberto = true;
+  }
+
+  onChatFechado() {
+    this.chatAberto = false;
+    console.log("Fechado");
+  }
 }

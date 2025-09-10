@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, Output, input, Input, EventEmitter } from '@angular/core';
 import { NgIf, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from '../../services/chat.service';
@@ -17,11 +17,23 @@ export class ChatComponent {
   conversationStarted = false;
   messages: { from: 'user' | 'bot', text: string }[] = [];
   loading = false;
-  mostraChat = true;
+
+  // Recebe o estado inicial do pai
+  @Input() mostrarChat: boolean = false;
+
+  // Fechar chat
+  @Output() chatFechado = new EventEmitter<void>();
+
+  fecharChat(){
+    this.mostrarChat = false;
+    this.chatFechado.emit();
+  }
+
 
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
 
   constructor(private chatService: ChatService) { }
+
 
   sendMessage() {
     if (!this.text.trim()) return;
@@ -50,9 +62,7 @@ export class ChatComponent {
     this.scrollToBottom();
   }
 
-  appear() {
-    this.mostraChat = !this.mostraChat;
-  }
+
 
   private scrollToBottom(): void {
     setTimeout(() => {

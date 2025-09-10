@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class ChatService {
-  private apiUrl = 'http://127.0.0.1:8000/chat/'; //url API Django
+  private apiUrl = 'http://127.0.0.1:8000/messages/'; //url API Django
 
   constructor(private http: HttpClient) { }
 

@@ -1,18 +1,26 @@
 
-  <div class="bg-black ">
-    <div class="-ml-10  ">
+  <div class="fixed inset-0 flex items-center justify-center">
+    <div class="-ml-10 w-96 bg-white shadow-2xl rounded-2xl border border-gray-200 
+         transition-all duration-500 ease-in-out transform "
+    [class.opacity-0]="!mostrarChat"
+  [class.scale-95]="!mostrarChat"
+  [class.opacity-100]="mostrarChat"
+  [class.scale-100]="mostrarChat"
+    >
       <section
         class="bg-white overflow-hidden transition-all duration-500 ease-in-out transform origin-bottom fixed bottom-24 right-5 rounded-2xl xs:w-[20rem] h-[25rem] sm:w-80 sm:h-[26rem] md:w-96 md:h-[26rem]"
-        *ngIf="mostraChat"
+        
       >
         <header class="bg-blue-900 p-5 text-center text-white font-sans">
-          <h2 class="text-lg">Assistente Virtual Angola Cables</h2>
+          <p class="text-lg">Assistente Virtual Angola Cables</p>
+             
         </header>
 
-        <!-- Mensagem inicial  -->
+        <!-- start message  -->
         <ng-container *ngIf="!conversationStarted">
           <article class="p-2 pb-1 bg-[#f4f1f1] m-5 rounded-md">
             <p>Olá! Sou o Assistente virtual da Angola Cables.</p>
+         
           </article>
           <article class="p-4 bg-[#f4f1f1] m-5 -mt-4 rounded-lg">
             <p class="mb-2">Posso ajudar com:</p>
@@ -25,7 +33,7 @@
           </article>
         </ng-container>
 
-        <!----Histórico da conversa-->
+        <!----BOT Response-->
 
         <div
           *ngIf="conversationStarted"
@@ -74,13 +82,6 @@
         </form>
       </section>
 
-       <!--Botão abrir  / fechar-->
-      <img
-        src="img/chat.png"
-        alt="chat"
-        (click)="appear()"
-        class="w-[75px] cursor-pointer fixed bottom-5 right-5"
-      />
     </div>
   </div>
 

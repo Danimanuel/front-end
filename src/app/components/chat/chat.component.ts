@@ -6,6 +6,7 @@ import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-chat',
+  standalone: true,
   imports: [NgIf, NgFor, FormsModule, MarkdownModule
   ],
   templateUrl: './chat.component.html',
@@ -18,22 +19,23 @@ export class ChatComponent {
   messages: { from: 'user' | 'bot', text: string }[] = [];
   loading = false;
 
-  // Recebe o estado inicial do pai
-  @Input() mostrarChat: boolean = false;
+  // Abrir e Fechar Chat
 
-  // Fechar chat
-  @Output() chatFechado = new EventEmitter<void>();
+ @Input() aberto = false;
+  @Output() fechado = new EventEmitter<void>();
 
-  fecharChat(){
-    this.mostrarChat = false;
-    this.chatFechado.emit();
+  fechar() {
+    this.aberto = false;
+    this.fechado.emit();
   }
+
 
 
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
 
   constructor(private chatService: ChatService) { }
 
+  // Send Function
 
   sendMessage() {
     if (!this.text.trim()) return;
@@ -62,7 +64,7 @@ export class ChatComponent {
     this.scrollToBottom();
   }
 
-
+// Auto Scroll
 
   private scrollToBottom(): void {
     setTimeout(() => {

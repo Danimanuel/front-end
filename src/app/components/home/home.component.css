@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+@media screen and (max-width:761px) {
+
+  img#imagecht {
+    display: block;
+    margin: auto;
+    margin-left: 39%;
+    height: 260px;
+    width: 350px;
+  }
+
+}
+
+
 @media  screen  and (max-width:640px) {
   div#cabeca{
     background-color: rgb(8, 27, 70);
@@ -10,7 +23,7 @@
     width: 48em;
     margin-left: -19px;
   position: relative;
-  } 
+  }
 }
 
 
@@ -59,7 +72,7 @@ div#causa-quebra > #img {
     width: 18em;
     margin-bottom: 40px;
   }
- 
+
 
 }
 
@@ -71,12 +84,14 @@ div#causa-quebra > #img {
 
 #bg-video {
   position: absolute;
-overflow: hidden;
+ overflow: hidden;
   left: 0;
   width: 100%;
-  height: 68%;
+  height: 70%;
   margin-top: -1px;
   object-fit: cover;
   z-index: -1;
   filter: blur(3px);
+  translate: -80;
 }
+

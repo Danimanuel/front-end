@@ -4,11 +4,12 @@
       <div class="col-span-2   h-screen " id="cabeca">
         <div class="flex flex-wrap p-2" id="causa-quebra">
           <!-----Inserindo o background de video-->
-          <div id="hero">
-            <video [autoplay]="true" [muted]="true" loop [playsInline]="false" id="bg-video" >
+      <div id="hero">
+            <video [autoplay]="true" [muted]="true" loop [playsInline]="false" class=" absolute top-0 left-0 w-full h-[80%] inset-0 bg-[#021625]  bg-opacity-30 max-md:hidden  object-cover -z-10 " >
               <source src="videos/fundo-bg.webm" type="video/webm">
             </video>
           </div>
+
             <article id="conteudo" class="py-36 text-start pl-12 leading-10 ">
               <ul class=" bg-blue-900 inline-block pl-7 m-2 p-1.5 text-sm mb-2  rounded-xl text-white  list-disc">
                 <li>Chat em tempo real</li>

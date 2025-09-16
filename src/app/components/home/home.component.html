@@ -1,28 +1,30 @@
-<div class="h-2/3 ">
+<div class="">
   <div class=" grid grid-cols-2 grid-rows-1 ">
-        
-      <div class="col-span-2   h-[80vh] " id="cabeca">
+
+      <div class="col-span-2   h-screen " id="cabeca">
         <div class="flex flex-wrap p-2" id="causa-quebra">
+          <!-----Inserindo o background de video-->
           <div id="hero">
             <video [autoplay]="true" [muted]="true" loop [playsInline]="false" id="bg-video" >
               <source src="videos/fundo-bg.webm" type="video/webm">
             </video>
           </div>
-            <article id="conteudo">
-              <ul class=" bg-blue-900 inline-block pl-7 m-5 p-1.5 text-sm   rounded-xl text-white  list-disc">
+            <article id="conteudo" class="py-36 text-start pl-12 leading-10 ">
+              <ul class=" bg-blue-900 inline-block pl-7 m-2 p-1.5 text-sm mb-2  rounded-xl text-white  list-disc">
                 <li>Chat em tempo real</li>
               </ul>
+              <!----Conteudo principla e o botão para abrir o chat-->
               <h1 class="text-[24px] text-2xl font-semibold text-white">Converse Connosco em Tempo real</h1>
-              <p class="text-justify  m-2 p-1 text-[#f9f7f7] ">Estamos aqui para esclarecer dúvidas e orientar a melhor solução para si, de forma simples e rápida.</p>
-              <p class="text-justify  m-2 p-1 text-[#dcdcdc]"><button (click)="abrirChat()" class="bg-[#1b5de1] p-2 rounded-lg text-white font-semibold">  Iniciar o Chat</button>  Tempo médio de resposta - 2min</p>
+              <p class="text-justify   text-[#f9f7f7] leading-5 mb-4">Estamos aqui para esclarecer dúvidas e orientar a melhor solução para si, de forma simples e rápida.</p>
+              <p class="text-justify   text-[#dcdcdc]"><button (click)="abrirChat()" class="bg-[#1b5de1] p-2 rounded-lg text-white font-bold ">  Iniciar o Chat</button>  Tempo médio de resposta - 2min</p>
               <app-chat [aberto]="chatAberto" (fechado)="fecharChat()"></app-chat>
             </article>
-            <div id="img"><img src="img/imagea.png" alt="chat image" id="imagecht" class="h-[25em] w-[25em] mt-5 pl-16 "></div>
+            <div id="img"><img src="img/imagea.png" alt="chat image" id="imagecht" class="h-[25em] w-[25em] mt-5 pl-16 pt-[6.9em]"></div>
 
         </div>
       </div>
   </div>
-
+  <!----Conteudo explicativo-->
   <div class="flex flex-col p-2 justify-center items-center gap-6" id="con2">
     <div class="shadow-md p-5 rounded-md" >
       <h2 class="font-semibold text-blue-800 pb-1 ">Disponivél 24/7</h2>

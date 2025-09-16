@@ -14,16 +14,36 @@
 
 
 @media  screen  and (max-width:640px) {
+
   div#cabeca{
-    background-color: rgb(8, 27, 70);
+   background-color: rgb(8, 27, 70);
     height: 100%;
+    padding-top: 34px;
   }
   img#imagecht{
-    height: 20em;
+    height: 20.7em;
     width: 48em;
     margin-left: -19px;
-  position: relative;
+    margin-top: -65px;
+
   }
+  /* formatação de conteudo para mobile*/
+  #conteudo > h1 {
+    line-height: 3em;
+  }
+  #conteudo {
+    margin-bottom: -6rem;
+    margin-top: -5rem;
+  }
+  #conteudo > p{
+    line-height: 2em;
+  }
+
+  #bg-video {
+    display: none;
+
+  }
+
 }
 
 
@@ -42,6 +62,7 @@
   div#causa-quebra > #conteudo {
     width: 500px;
     margin: auto;
+
   }
 div#causa-quebra > #img {
   margin: auto;
@@ -72,26 +93,22 @@ div#causa-quebra > #img {
     width: 18em;
     margin-bottom: 40px;
   }
-
-
 }
 
 #con2 > div > h2 {
   font-size: 1.3em;
 }
 
-
-
 #bg-video {
   position: absolute;
- overflow: hidden;
+  overflow: hidden;
   left: 0;
   width: 100%;
-  height: 70%;
+  height: 77%;
   margin-top: -1px;
   object-fit: cover;
   z-index: -1;
   filter: blur(3px);
-  translate: -80;
+
 }
 

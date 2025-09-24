@@ -69,7 +69,7 @@ export class ChatComponent {
   private scrollToBottom(): void {
     setTimeout(() => {
       if (this.chatContainer) {
-        this.chatContainer.nativeElement.scrollTop =
+          this.chatContainer.nativeElement.scrollTop =
           this.chatContainer.nativeElement.scrollHeight;
       }
     }, 100);

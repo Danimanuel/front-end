@@ -18,7 +18,13 @@
   div#cabeca{
     height: 100%;
     padding-top: 34px;
-    margin-left: -40px;
+    margin-left: -45px;
+
+  }
+
+  div#cabeca > div{
+
+
   }
   img#imagecht{
     height: 20.7em;
@@ -35,9 +41,14 @@
   #conteudo {
     padding-bottom: 3em;
     margin-top: -4rem;
+    background-color: rgba(0, 0, 0, 0.347);
   }
   #conteudo > p{
     line-height: 2em;
+  }
+
+  #img{
+    background-color: rgba(0, 0, 0, 0.347);
   }
 
 }

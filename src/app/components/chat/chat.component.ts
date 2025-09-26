@@ -33,6 +33,9 @@ export class ChatComponent {
 
   @ViewChild('chatContainer') private chatContainer!: ElementRef;
 
+
+
+
   constructor(private chatService: ChatService) { }
 
   // Send Function
@@ -49,29 +52,23 @@ export class ChatComponent {
     this.chatService.sendMessage(this.text).subscribe({
       next: (res) => {
         this.messages.push({ from: 'bot', text: res.response });
-        this.scrollToBottom();
+        //this.scrollToBottom();
         this.loading = false;
-        this.scrollToBottom();
+        //this.scrollToBottom();
       },
       error: (err) => {
         console.error(err);
-        //this.loading = false;
-        this.scrollToBottom();
+        this.loading = false;
+       // this.scrollToBottom();
       }
     });
 
     this.text = '';
-    this.scrollToBottom();
+   // this.scrollToBottom();
+
+   // setTimeout(()=> this.scrollToBottom(), 0);
   }
 
-// Auto Scroll
 
-  private scrollToBottom(): void {
-    setTimeout(() => {
-      if (this.chatContainer) {
-          this.chatContainer.nativeElement.scrollTop =
-          this.chatContainer.nativeElement.scrollHeight;
-      }
-    }, 100);
-  }
+
 }
